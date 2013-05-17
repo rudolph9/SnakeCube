@@ -1,10 +1,7 @@
-require 'pry'
-require 'pry-debugger'
-
 class SnakeCube
-  attr :x
-  attr :y
-  attr :z
+  attr_reader :x
+  attr_reader :y
+  attr_reader :z
   def initialize x, y, z
     @x = x
     @y = y
@@ -12,17 +9,20 @@ class SnakeCube
   end
   def valid_snake? binary_string
     return false unless binary_string.length == (@x * @y * @z)
-    valid_snake [[1,1,1,1]], binary_string
+    (valid_snake [[1,1,1,1]], binary_string) or (valid_snake [[1,1,1,2]], binary_string) or (valid_snake [[1,1,1,3]], binary_string)
   end
 
   # @poistion_array contains position vectors e.g. [[x_0,y_0,z_0,d_0],[x_1,y_1,z_1,d_1]]
   def valid_snake position_array, binary_string
-    return true if binary_string.empty?
+    if binary_string.length == 1 # only (cublets - 1) bits matter
+      puts "Position Traveled: #{position_array}"
+      return true 
+    end 
     if binary_string[0] == '0'
       position_ = position_array.clone
       position_.push (position_[-1]).clone
       i = ((position_[-1])[-1])
-      (position_[-1])[ i.abs - 1] = i.abs / i
+      (position_[-1])[ i.abs - 1] = (position_[-1])[ i.abs - 1] + i.abs / i
       return false unless position_valid? position_
       self.valid_snake position_, binary_string[1..-1]
     else
