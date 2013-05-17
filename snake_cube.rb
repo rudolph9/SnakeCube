@@ -9,6 +9,8 @@ class SnakeCube
   end
   def valid_snake? binary_string
     return false unless binary_string.length == (@x * @y * @z)
+    # The initial direction of travel is ambigious, try all three valid directions.
+    # Alternate directions only matter when our "Cube" is not actually a cube (i.e. all sides equal length).
     (valid_snake [[1,1,1,1]], binary_string) or (valid_snake [[1,1,1,2]], binary_string) or (valid_snake [[1,1,1,3]], binary_string)
   end
 
