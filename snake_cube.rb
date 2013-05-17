@@ -1,3 +1,5 @@
+require 'pry'
+
 class SnakeCube
   attr_reader :x
   attr_reader :y
@@ -45,10 +47,11 @@ class SnakeCube
   end
   # @position
   def position_valid? position
-    if position.uniq! == nil
-      x = (position[-1])[0]
-      y = (position[-1])[1]
-      z = (position[-1])[2]
+    position_ = position.clone
+    if (position_.map { |array| [array[0], array[1], array[2]]}).uniq! == nil
+      x = (position_[-1])[0]
+      y = (position_[-1])[1]
+      z = (position_[-1])[2]
 
       if x > 0 and x <= @x and y > 0 and y <= @y and z > 0 and z <= @z
         return true
