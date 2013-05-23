@@ -27,5 +27,7 @@ bool position_valid( cube_t * cube, const position_t *position);
 void position_direction_change( position_t * position, int direction);
 position_t * position_append( const position_t * position, int direction);
 bool snake_valid( cube_t *cube, position_t *position, char *binary_string);
+void free_cube( cube_t *cube);
+void free_snake( position_t * head);
 
 #endif //__SNAKE_CUBE__

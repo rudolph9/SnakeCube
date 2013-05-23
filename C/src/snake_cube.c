@@ -26,7 +26,7 @@ bool position_valid( cube_t * cube, const position_t *position) {
     return false;
   position_t *position_i;
   position_i = position->prev;
-  while ( position_i->prev != NULL) {
+  while ( position_i != NULL) {
     if( positions_equal( position_i, position)) {
       return false;
     }
@@ -93,4 +93,14 @@ bool snake_valid( cube_t *cube, position_t *position, char *binary_string) {
   }
     
 }
+
+void free_cube( cube_t *cube) {
+  free( cube);
+  cube = NULL;
+}
+void free_snake( position_t *position){
+  //TODO
+}
+
+
 
