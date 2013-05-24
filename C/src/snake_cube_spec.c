@@ -77,7 +77,6 @@ void test_position_append( ) {
   position_1 = position_append( position_0, 1);
   assert( position_1->prev == position_0);
   assert( position_1->x == 2);
-  
 }
 
 void test_snake_valid( ) {

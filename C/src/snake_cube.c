@@ -45,6 +45,7 @@ void position_direction_change( position_t * position, int direction){
     case 3:
       position->z += norm;
   }
+  position->d = direction;
 }
 position_t * position_append( const position_t * position, int direction) {
   position_t * position_;
@@ -70,15 +71,17 @@ bool snake_valid( cube_t *cube, position_t *position, char *binary_string) {
   } else {
     position_t * position_;
     int i;
-    for( i = 1; i <= 3; i++){
+    for( i = 1; i <= 3; i++) {
+      if( abs( position->d ) != abs( i));
       position_ = position_append( position, i );
       if( position_valid( cube, position_))
         if ( snake_valid( cube, position, binary_string + 1)) return true;
     }
     for( i = -1; i >= -3; i--) {
+      if( abs( position->d ) != abs( i));
       position_ = position_append( position, i );
       if( position_valid( cube, position_))
-        if (snake_valid( cube, position, binary_string + 1)) return true;
+        if ( snake_valid( cube, position, binary_string + 1)) return true;
     }
     return false;
   }
