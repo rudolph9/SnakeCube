@@ -49,7 +49,7 @@ void position_direction_change( position_t * position, int direction){
 position_t * position_append( const position_t * position, int direction) {
   position_t * position_;
   position_ = position_clone( position);
-  position_->prev = position;
+  position_->prev = (position_t *)position;
   position_direction_change( position_, direction);
   return position_;
 }

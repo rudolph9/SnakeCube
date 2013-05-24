@@ -86,10 +86,12 @@ void test_snake_valid( ) {
   int coords[3] = {3, 3, 3};
   initialize( coords, &cube_0, &position_0);
   char * binary_string = "001110110111010111101010100";
+  assert( snake_valid( cube_0, position_0, binary_string) == true);
+
   position_t *position_1;
   initialize( coords, &cube_0, &position_1);
   binary_string = "000010110111010111101010100";
-  assert( snake_valid( cube_0, position_0, binary_string) == false);
+  assert( snake_valid( cube_0, position_1, binary_string) == false);
 }
 
 
@@ -99,6 +101,7 @@ int main( int argc, char *argv[]) {
   test_position_valid();
   test_position_direction_change();
   test_position_append();
+  test_snake_valid();
   return 0;
 }
 
