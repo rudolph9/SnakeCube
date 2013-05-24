@@ -22,8 +22,11 @@ int main (int argc, char *argv[]) {
   position_t *position;
   initialize( argc, argv, &cube, &position);
 
-  snake_valid( cube, position, argv[4]);
-
+  if( snake_valid( cube, position, argv[4])) {
+    printf( "Valid Snake %s!\n", argv[4]);
+  } else {
+    printf( "Invalid Snake %s :(\n", argv[4]);
+  }
   
   return 0;
 }

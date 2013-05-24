@@ -56,7 +56,6 @@ position_t * position_append( const position_t * position, int direction) {
 
 bool snake_valid( cube_t *cube, position_t *position, char *binary_string) {
   if( strlen( binary_string) == 1) {
-    printf( "%c!\n", binary_string[0] );
     return true;
   }
 
@@ -64,34 +63,25 @@ bool snake_valid( cube_t *cube, position_t *position, char *binary_string) {
     position_t * position_;
     position_ = position_append( position, position->d);
     if( position_valid( cube, position_)) {
-      printf( "%c", binary_string[0] );
       return snake_valid( cube, position_, binary_string + 1);
+    } else {
+      return false;
     }
-    else {
+  } else {
     position_t * position_;
     int i;
     for( i = 1; i <= 3; i++){
       position_ = position_append( position, i );
-      if( position_valid( cube, position_)) {
-        printf( "%c", binary_string[0] );
+      if( position_valid( cube, position_))
         if ( snake_valid( cube, position, binary_string + 1)) return true;
-      }
     }
     for( i = -1; i >= -3; i--) {
       position_ = position_append( position, i );
-      if( position_valid( cube, position_)) {
-        printf( "%c", binary_string[0] );
+      if( position_valid( cube, position_))
         if (snake_valid( cube, position, binary_string + 1)) return true;
-      }
     }
-      return false;
-    }
+    return false;
   }
-  else {
-    printf( "%c", binary_string[0] );
-    return snake_valid( cube, position, binary_string + 1);
-  }
-    
 }
 
 void free_cube( cube_t *cube) {
