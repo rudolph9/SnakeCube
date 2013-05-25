@@ -29,5 +29,6 @@ position_t * position_append( const position_t * position, int direction);
 bool snake_valid( cube_t *cube, position_t *position, char *binary_string);
 void free_cube( cube_t *cube);
 void free_snake( position_t * head);
+void free_position( position_t *position);
 
 #endif //__SNAKE_CUBE__

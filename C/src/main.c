@@ -27,6 +27,8 @@ int main (int argc, char *argv[]) {
   } else {
     printf( "Invalid Snake %s :(\n", argv[4]);
   }
+  free_position( position);
+  free_cube( cube);
   
   return 0;
 }

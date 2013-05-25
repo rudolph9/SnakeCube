@@ -1,7 +1,3 @@
-# Not Working
-I have a bug somewhere and I can't find it...
-Also, I need to actually free some memory...
-
 ## Running the command line script
 
     $ make
