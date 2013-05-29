@@ -1,5 +1,10 @@
 require 'pry'
 
+class Snake
+
+
+end
+
 class SnakeCube
   attr_reader :x
   attr_reader :y
