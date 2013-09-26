@@ -13,3 +13,4 @@ snake_cube_solution(3, 3, 3, “001110110111010111101010100″) == 1
 
 Bonus points are given for printing out the final x,y,z coordinates for each cubelet, in order, assuming that the first block of the cube always begins at (1,1,1) and the final cubelet always ends with (X,Y,Z).
 
+
